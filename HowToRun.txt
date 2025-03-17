@@ -1,0 +1,15 @@
+Instalar o xamp
+Colocando o php como uma variável de ambiente
+(
+    Copiar o caminho onde está o php na pasta
+    Insirir esse caminho no path
+)
+Abrir uma janela de comando
+Entrar na pasta "Public" do projeto. Exemplo se estiver na área de trabalho [C:\Users\UserName\Desktop\TesteMz\Public]
+Executar: php -S localhost:8080
+Acessar localhost:8080 no navegador
+
+
+O Composer deve ser inslado globalmente no projeto, ou seja, na pasta que contém todos os arquivos do projeto
+
+php vendor/bin/doctrine-migrations migration:generate
