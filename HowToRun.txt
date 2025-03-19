@@ -10,6 +10,9 @@ Executar: php -S localhost:8080
 Acessar localhost:8080 no navegador
 
 
-O Composer deve ser inslado globalmente no projeto, ou seja, na pasta que contém todos os arquivos do projeto
+O Composer deve ser instalado globalmente no projeto, ou seja, na pasta que contém todos os arquivos do projeto
 
-php vendor/bin/doctrine-migrations migration:generate
+//Banco
+
+Criar o banco vazio através do phpmyadmin
+Executar o comando "php vendor/bin/doctrine orm:schema-tool:create

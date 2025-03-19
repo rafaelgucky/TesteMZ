@@ -3,9 +3,11 @@ namespace TM\Controller;
 use stdClass;
 abstract class Action
 {
+    protected $service;
     protected $view;
-    public function __construct() {
+    public function __construct($service) {
         $this->view = new stdClass();
+        $this->service = $service;
     }
 
     protected function render($view)
@@ -20,6 +22,12 @@ abstract class Action
         $class = str_replace("App\\Controllers\\", "", $class);
         $class = strtolower(str_replace("Controller", "", $class));
         include_once "../App/Views/" . $class . "/" . $this->view->page . ".php";
+    }
+
+    protected function redirect($url)
+    {
+        header("Location: " . $url);
+        exit();
     }
 
 }

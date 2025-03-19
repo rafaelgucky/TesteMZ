@@ -27,6 +27,26 @@
                 "controller" => "indexController",
                 "action" => "index"
             ];
+            $routes["createPessoa"] = [
+                "route" => "/pessoa/create",
+                "controller" => "indexController",
+                "action" => "create"
+            ];
+            $routes["updatePessoa"] = [
+                "route" => "/pessoa/update",
+                "controller" => "indexController",
+                "action" => "update"
+            ];
+            $routes["updatePessoaSave"] = [
+                "route" => "/pessoa/updatesave",
+                "controller" => "indexController",
+                "action" => "updateSave"
+            ];
+            $routes["deletePessoa"] = [
+                "route" => "/pessoa/delete",
+                "controller" => "indexController",
+                "action" => "delete"
+            ];
             $routes["people"] = [
                 "route" => "/people",
                 "controller" => "peopleController",
@@ -49,7 +69,7 @@
                     $class = "App\\Controllers\\" . ucfirst($routes["controller"]);
                     $controller = new $class;
                     $action = $routes["action"];
-                    $controller->$action();
+                    $controller->$action($_POST);
                 }
             }
             
