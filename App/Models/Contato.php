@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Doctrine\ORM\Mapping as ORM;
 
-// #[ORM\Table(name: "contato")]
+// @Table(name: "contatos")]
 // #[ORM\Entity]
 
 /**
@@ -20,10 +20,10 @@ class Contato
     private int $id;
 
     /**
-     * @Column(type="boolean")
+     * @Column(type="boolean", options={"default": false})
      * @var bool
      */
-    private bool $tipo;
+    private bool $tipo = false;
 
     /**
      * @Column(type="string")
@@ -31,12 +31,15 @@ class Contato
      */
     private string $descricao;
 
-    /**
-     * @ManyToOne(targetEntity="Pessoa")
-     * @var int
+    // /**
+    //  * @ManyToOne(targetEntity="Pessoa", cascade={"persist"})
+    //  * @var Pessoa
+    //  */
+
+    /** @ManyToOne(targetEntity="Pessoa", inversedBy="contatos")
      */
-    //, inversedBy="stocks"
-    private int $idPessoa;
+    //, cascade={"merge"}
+    private Pessoa $pessoa;
 
 
     public function getId()
@@ -64,8 +67,12 @@ class Contato
         $this->descricao = $descricao;
     }
 
-    public function getPerson()
+    public function getPessoa()
     {
-        return $this->idPessoa;
+        return $this->pessoa;
+    }
+    public function setPessoa($Pessoa)
+    {
+        $this->pessoa = $Pessoa;
     }
 }

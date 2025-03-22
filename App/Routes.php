@@ -22,7 +22,7 @@
 
         public function initRoutes()
         {
-            $routes["home"] = [
+            $routes["homePessoa"] = [
                 "route" => "/",
                 "controller" => "indexController",
                 "action" => "index"
@@ -37,7 +37,7 @@
                 "controller" => "indexController",
                 "action" => "update"
             ];
-            $routes["updatePessoaSave"] = [
+            $routes["updateSavePessoa"] = [
                 "route" => "/pessoa/updatesave",
                 "controller" => "indexController",
                 "action" => "updateSave"
@@ -47,15 +47,35 @@
                 "controller" => "indexController",
                 "action" => "delete"
             ];
-            $routes["people"] = [
-                "route" => "/people",
-                "controller" => "peopleController",
+            $routes["homeContato"] = [
+                "route" => "/contatos",
+                "controller" => "contatosController",
                 "action" => "index"
             ];
-            $routes["contact"] = [
-                "route" => "/contact",
-                "controller" => "contactController",
-                "action" => "index"
+            $routes["createContato"] = [
+                "route" => "/contatos/create",
+                "controller" => "contatosController",
+                "action" => "create"
+            ];
+            $routes["createSaveContato"] = [
+                "route" => "/contatos/createSave",
+                "controller" => "contatosController",
+                "action" => "createSave"
+            ];
+            $routes["updateContato"] = [
+                "route" => "/contatos/update",
+                "controller" => "contatosController",
+                "action" => "update"
+            ];
+            $routes["updateSaveContato"] = [
+                "route" => "/contatos/updateSave",
+                "controller" => "contatosController",
+                "action" => "updateSave"
+            ];
+            $routes["deleteContato"] = [
+                "route" => "/contatos/delete",
+                "controller" => "contatosController",
+                "action" => "delete"
             ];
             $this->setRoutes($routes);
         }

@@ -28,6 +28,12 @@ class Pessoa
      */
     private $cpf;
 
+    /**
+     * @OneToMany(targetEntity="Contato", mappedBy="pessoa", indexBy="contato", cascade={"remove"})
+     */
+    //, cascade={"persist"}
+    private $contatos;
+
     public function getId() {
         return $this->id;
     }

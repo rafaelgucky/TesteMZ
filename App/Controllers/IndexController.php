@@ -1,6 +1,6 @@
 <?php
 namespace App\Controllers;
-use App\Controllers\Action;
+//use App\Controllers\Action;
 use TM\Controller\Action as ControllerAction;
 use App\Services\PessoaServices;
 use App\Models\Pessoa;
@@ -34,9 +34,9 @@ class IndexController extends ControllerAction
         return $this->render('create');
     }
 
-    public function update($id)
+    public function update($request)
     {
-        $this->view->dados = [$id];
+        $this->view->dados = $request;
         $this->render("update");
     }
 

@@ -1,7 +1,7 @@
 <?php
 namespace App\Services;
 use App\Models\Pessoa;
-use Doctrine\ORM\EntityManagerInterface;
+//use Doctrine\ORM\EntityManagerInterface;
 
 class PessoaServices
 {
@@ -21,6 +21,17 @@ class PessoaServices
     {
         $pessoaRepository = $this->entityManager->getRepository(Pessoa::class);
         return $pessoaRepository->findAll();
+    }
+
+    public function findById($id)
+    {
+        return $this->entityManager->getRepository(Pessoa::class)->find($id);
+    }
+
+    public function findReferenceById($id)
+    {
+        $this->entityManager->getRepository(Pessoa::class)->find($id);
+        return $this->entityManager->getReference(Pessoa::class, $id);
     }
 
     public function update($id, $nome, $cpf)
