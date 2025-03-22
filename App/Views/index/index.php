@@ -1,6 +1,10 @@
 <a href="pessoa/create">
     <button class="btn btn-success my-1">Adicionar pessoa</button>
 </a>
+<form action="" method="post">
+    <input type="text" name="searchByNome" id="inome" placeholder="Nome da pessoa">
+    <input type="submit" value="Pesquisar" class="btn btn-success my-1">
+</form>
     <table class="table table-striped table-hover shadow">
         <thead class="table-dark">
             <tr>

@@ -2,10 +2,6 @@
 
 namespace App\Models;
 
-use Doctrine\ORM\Mapping as ORM;
-
-// @Table(name: "contatos")]
-// #[ORM\Entity]
 
 /**
  * @Entity
@@ -31,14 +27,7 @@ class Contato
      */
     private string $descricao;
 
-    // /**
-    //  * @ManyToOne(targetEntity="Pessoa", cascade={"persist"})
-    //  * @var Pessoa
-    //  */
-
-    /** @ManyToOne(targetEntity="Pessoa", inversedBy="contatos")
-     */
-    //, cascade={"merge"}
+    /** @ManyToOne(targetEntity="Pessoa", inversedBy="contatos")*/
     private Pessoa $pessoa;
 
 

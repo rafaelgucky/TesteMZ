@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @Entity
  * @Table(name="pessoas")
@@ -31,7 +29,6 @@ class Pessoa
     /**
      * @OneToMany(targetEntity="Contato", mappedBy="pessoa", indexBy="contato", cascade={"remove"})
      */
-    //, cascade={"persist"}
     private $contatos;
 
     public function getId() {

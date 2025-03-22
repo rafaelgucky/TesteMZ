@@ -11,20 +11,21 @@ class ContatosController extends ControllerAction
         parent::__construct(new ContatoServices());
     }
 
-    public function index($idPessoa)
+    public function index($request)
     {
-        if(!isset($_COOKIE["idPessoa"]))
+        // Verificação defensiva
+        if(empty($request["id"]) && !isset($_COOKIE["idPessoa"]))
         {
-            if(!empty($idPessoa))
-            {
-                setcookie("idPessoa", $idPessoa["id"], time() + 10800, "/contatos");
-            }
-            else{
-                $this->redirect("/");
-            }
+            $this->redirect("/");
         }
-          
-        $this->view->dados = $this->service->findByIdPessoa($_COOKIE["idPessoa"]);
+        if(!empty($request["id"]))
+        {
+            setcookie("idPessoa", $request["id"], time() + 10800, "/contatos");
+            $this->view->dados = $this->service->findByIdPessoa($request["id"]);
+        }else{
+            $this->view->dados = $this->service->findByIdPessoa($_COOKIE["idPessoa"]);
+        }
+        
         $this->render("index");
     }
     public function create($idPessoa)
